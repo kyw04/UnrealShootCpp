@@ -9,15 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8637c254-7e69-4942-a208-3ead26b14ae7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ABullet.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ACPlayer.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ABullet.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ACPlayer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UnrealShootCpp.uproject" beforeDir="false" afterPath="$PROJECT_DIR$/UnrealShootCpp.uproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ACPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ACPlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEntity.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ACPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ACPlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/AEntity.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/AEntity.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +30,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="cidr-memory-view://0" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Core/Public/GenericPlatform/GenericPlatformMath.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/AI/Navigation/NavRelevantInterface.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Components/PrimitiveComponent.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/Components/SceneComponent.h" root0="FORCE_HIGHLIGHTING" />
@@ -107,7 +106,8 @@
       <workItem from="1780811164828" duration="80000" />
       <workItem from="1780811390668" duration="103000" />
       <workItem from="1780811576340" duration="438000" />
-      <workItem from="1780812061270" duration="16105000" />
+      <workItem from="1780812061270" duration="16645000" />
+      <workItem from="1780843180580" duration="7739000" />
     </task>
     <servers />
   </component>
@@ -115,6 +115,10 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnrealLogPanelSettings">
+    <option name="showErrors" value="false" />
+    <option name="showMessages" value="false" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

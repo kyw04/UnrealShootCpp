@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "ABullet.h"
 #include "GameFramework/Pawn.h"
 #include "AEntity.generated.h"
 
@@ -18,8 +19,8 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	void Move(float DeltaTime);
-	void SetDirection(const struct FInputActionValue& value);
+	virtual void SetDirection(const struct FInputActionValue& value);
+	virtual void Move(float DeltaTime);
 
 public:	
 	// Called every frame
@@ -28,8 +29,8 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
-	void TakeDamage(float Damage);
-	void BulletSpawn(class ABullet target);
+	void GetDamage(AActor& Attacker, float Damage);
+	void BulletSpawn();
 	void OnDie(AActor& Attacker);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category= ShootComponent)
@@ -37,6 +38,8 @@ public:
 	UPROPERTY(VisibleAnywhere, Category=ShootComponent)
 	class UStaticMeshComponent* bodyMeshComp;
 	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
+	ABullet* Bullet;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	float maxHealth = 100.0f;
 	UPROPERTY(VisibleAnywhere, Category= Stat)

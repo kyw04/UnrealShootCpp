@@ -1,12 +1,8 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "AEntity.h"
 
 #include "Components/BoxComponent.h"
 #include "InputActionValue.h"
 
-// Sets default values
 AEntity::AEntity()
 {
 	PrimaryActorTick.bCanEverTick = true;
@@ -26,7 +22,6 @@ AEntity::AEntity()
 	}
 }
 
-// Called when the game starts or when spawned
 void AEntity::BeginPlay()
 {
 	Super::BeginPlay();
@@ -37,7 +32,7 @@ void AEntity::BeginPlay()
 void AEntity::Move(float DeltaTime)
 {
 	FVector newPos = GetActorLocation() + direction * speed * DeltaTime;
-	SetActorLocation(newPos, true);
+	SetActorLocation(newPos);
 }
 
 void AEntity::SetDirection(const FInputActionValue& value)
@@ -47,7 +42,6 @@ void AEntity::SetDirection(const FInputActionValue& value)
 	direction.Z = v.Y;
 }
 
-// Called every frame
 void AEntity::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
@@ -56,15 +50,24 @@ void AEntity::Tick(float DeltaTime)
 	direction = FVector::Zero();
 }
 
-// Called to bind functionality to input
 void AEntity::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
 
-void AEntity::TakeDamage(float Damage)
+void AEntity::GetDamage(AActor& Attacker, float Damage)
 {
+	curHealth -= Damage;
+	if (curHealth <= 0)
+	{
+		OnDie(*this);
+	}
+}
+
+void AEntity::BulletSpawn()
+{
+	
 }
 
 
