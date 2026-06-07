@@ -28,7 +28,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category= ShootComponent)
 	class UBoxComponent* boxComp;
 	UPROPERTY(VisibleAnywhere, Category=ShootComponent)
-	class UStaticMeshComponent* bodyMeshComp;
+	class USkeletalMeshComponent* bodyMeshComp;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	TSubclassOf<ABullet> bullet;
@@ -40,12 +40,13 @@ public:
 	float damage = 10.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	float speed = 500.0f;
+	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Info)
 	FVector direction;
-	UPROPERTY(VisibleAnywhere, Category= Info)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Info)
 	bool isAttack;
-	UPROPERTY(VisibleAnywhere, Category= Info)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Info)
 	bool isHit;
-	UPROPERTY(VisibleAnywhere, Category= Info)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Info)
 	bool isDie;
 };

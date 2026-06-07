@@ -12,14 +12,14 @@ AEntity::AEntity()
 	RootComponent = boxComp;
 	boxComp->SetCollisionProfileName(TEXT("OverlapAll"));
 	
-	bodyMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodyMeshComp"));
+	bodyMeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BodyMeshComp"));
 	bodyMeshComp->SetupAttachment(boxComp);
 	bodyMeshComp->SetCollisionProfileName(TEXT("NoCollision"));
 	
-	ConstructorHelpers::FObjectFinder<UStaticMesh> tempMesh(TEXT("/Script/Engine.StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
+	ConstructorHelpers::FObjectFinder<USkeletalMesh> tempMesh(TEXT("/Script/Engine.SkeletalMesh'/Game/Fabs/3D_LOW_POLY_FarmPack/Meshes/Animals/Birds/SKM_Duck_mixed.SKM_Duck_mixed'"));
 	if (tempMesh.Succeeded())
 	{
-		bodyMeshComp->SetStaticMesh(tempMesh.Object);
+		bodyMeshComp->SetSkeletalMesh(tempMesh.Object);
 	}
 }
 
