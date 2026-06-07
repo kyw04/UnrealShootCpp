@@ -24,6 +24,7 @@ void ACPlayer::BeginPlay()
 void ACPlayer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	direction = FVector::Zero();
 }
 
 void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -50,7 +51,9 @@ void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void ACPlayer::SetDirection(const struct FInputActionValue& value)
 {
-	Super::SetDirection(value);
+	auto v = value.Get<FVector>();
+	direction.Y = v.X;
+	direction.Z = v.Y;
 	
 	if (direction.Y * overlapHitNormal.Y > 0.0f)
 		overlapHitNormal.Y = 0.0f;
@@ -80,10 +83,6 @@ void ACPlayer::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 		return;
 	}
 	if (OtherActor->ActorHasTag(FName("Bullet")))
-	{
-		return;
-	}
-	if (OtherActor->ActorHasTag(FName("Player")))
 	{
 		return;
 	}

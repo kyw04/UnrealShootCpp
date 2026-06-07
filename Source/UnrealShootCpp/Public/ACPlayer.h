@@ -19,8 +19,8 @@ private:
 	
 protected:
 	virtual void BeginPlay() override;
-	virtual void SetDirection(const struct FInputActionValue& value) override;
 	virtual void Move(float DeltaTime) override;
+	void SetDirection(const struct FInputActionValue& value);
 
 public:
 	virtual void Tick(float DeltaTime) override;

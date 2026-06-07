@@ -36,19 +36,11 @@ void AEntity::Move(float DeltaTime)
 	SetActorLocation(newPos);
 }
 
-void AEntity::SetDirection(const FInputActionValue& value)
-{
-	auto v = value.Get<FVector>();
-	direction.Y = v.X;
-	direction.Z = v.Y;
-}
-
 void AEntity::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 	Move(DeltaTime);
-	direction = FVector::Zero();
 }
 
 void AEntity::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -72,7 +64,7 @@ void AEntity::BulletSpawn()
 	if (!World)
 		return;
 	
-	World->SpawnActor<ABullet>(bullet, GetActorTransform());
+	World->SpawnActor<ABullet>(bullet, GetActorTransform())->Owner = this;
 }
 
 

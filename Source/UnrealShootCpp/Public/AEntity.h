@@ -15,7 +15,6 @@ public:
 
 protected:
 	virtual void BeginPlay() override;
-	virtual void SetDirection(const struct FInputActionValue& value);
 	virtual void Move(float DeltaTime);
 
 public:	
@@ -38,7 +37,7 @@ public:
 	UPROPERTY(VisibleAnywhere, Category= Stat)
 	float curHealth;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
-	float bulletDamage = 10.0f;
+	float damage = 10.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	float speed = 500.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Info)
