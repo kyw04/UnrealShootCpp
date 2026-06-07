@@ -25,7 +25,8 @@ ABullet::ABullet()
 void ABullet::BeginPlay()
 {
     Super::BeginPlay();
-
+    
+    Tags.Add(FName("Bullet"));
     realtimePositions = SetPosition(RotatePosition(positions, angle));
 }
 

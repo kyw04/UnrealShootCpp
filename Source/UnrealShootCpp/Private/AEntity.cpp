@@ -2,6 +2,7 @@
 
 #include "Components/BoxComponent.h"
 #include "InputActionValue.h"
+#include "GameFramework/Actor.h"
 
 AEntity::AEntity()
 {
@@ -67,7 +68,11 @@ void AEntity::GetDamage(AActor& Attacker, float Damage)
 
 void AEntity::BulletSpawn()
 {
+	UWorld* World = GetWorld();
+	if (!World)
+		return;
 	
+	World->SpawnActor<ABullet>(bullet, GetActorTransform());
 }
 
 
