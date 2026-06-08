@@ -15,10 +15,11 @@ ABullet::ABullet()
     bodyMeshComp->SetupAttachment(boxComp);
     bodyMeshComp->SetCollisionProfileName(TEXT("NoCollision"));
 
-    static ConstructorHelpers::FObjectFinder<UStaticMesh> tempMesh(TEXT("/Script/Engine.StaticMesh'/Engine/BasicShapes/Cube.Cube'"));
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> tempMesh(TEXT("/Script/Engine.StaticMesh'/Game/Models/egg.egg'"));
     if (tempMesh.Succeeded())
     {
         bodyMeshComp->SetStaticMesh(tempMesh.Object);
+        bodyMeshComp->SetRelativeScale3D(FVector(0.25f));
     }
 }
 
@@ -26,7 +27,6 @@ void ABullet::BeginPlay()
 {
     Super::BeginPlay();
     
-    Tags.Add(FName("Bullet"));
     realtimePositions = SetPosition(RotatePosition(positions, angle));
 }
 

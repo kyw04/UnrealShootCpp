@@ -1,7 +1,7 @@
 #include "AEntity.h"
 
 #include "Components/BoxComponent.h"
-#include "InputActionValue.h"
+#include "Components/WidgetComponent.h"
 #include "GameFramework/Actor.h"
 
 AEntity::AEntity()
@@ -17,12 +17,27 @@ AEntity::AEntity()
 	bodyMeshComp->SetupAttachment(boxComp);
 	bodyMeshComp->SetCollisionProfileName(TEXT("NoCollision"));
 	
+	bodyMeshComp->SetRelativeRotation(FRotator(0.0f, -90.0f, -90.0f));
+	bodyMeshComp->SetRelativeScale3D(FVector(1.75f));
+	
 	ConstructorHelpers::FObjectFinder<USkeletalMesh> tempMesh(TEXT("/Script/Engine.SkeletalMesh'/Game/Fabs/3D_LOW_POLY_FarmPack/Meshes/Animals/Birds/SKM_Duck_mixed.SKM_Duck_mixed'"));
 	if (tempMesh.Succeeded())
 	{
 		bodyMeshComp->SetSkeletalMesh(tempMesh.Object);
-		bodyMeshComp->SetRelativeRotation(FRotator(0.0f, -90.0f, -90.0f));
-		bodyMeshComp->SetRelativeScale3D(FVector(1.75f));
+	}
+	
+	hpBar = CreateDefaultSubobject<UWidgetComponent>("hpBar");
+	hpBar->SetupAttachment(boxComp);
+	hpBar->SetWidgetSpace(EWidgetSpace::World);
+	
+	hpBar->SetRelativeLocation(FVector(0.0f, 0.0f, -70.0f));
+	hpBar->SetRelativeRotation(FRotator(180.0f, 0.0f, 0.0f));
+	hpBar->SetDrawSize(FVector2D(100.f, 10.f));
+	
+	static ConstructorHelpers::FClassFinder<UUserWidget> tempWidget(TEXT("/Game/Blueprints/Widgets/WBP_HpBar"));
+	if (tempWidget.Succeeded())
+	{
+		hpBar->SetWidgetClass(tempWidget.Class);
 	}
 }
 
@@ -31,6 +46,15 @@ void AEntity::BeginPlay()
 	Super::BeginPlay();
 	
 	curHealth = maxHealth;
+	
+	if (hpBar)
+	{
+		hpBarWidget = Cast<UHpBarWidget>(hpBar->GetUserWidgetObject());
+		if (hpBarWidget)
+		{
+			hpBarWidget->UpdateHealth(curHealth, maxHealth);
+		}
+	}
 }
 
 void AEntity::Move(float DeltaTime)
@@ -52,12 +76,14 @@ void AEntity::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 }
 
-void AEntity::GetDamage(AActor& Attacker, float Damage)
+void AEntity::GetDamage(TObjectPtr<AActor> Attacker, float Damage)
 {
+	isHit = true;
 	curHealth -= Damage;
+	hpBarWidget->UpdateHealth(curHealth, maxHealth);
 	if (curHealth <= 0)
 	{
-		OnDie(*this);
+		OnDie(this);
 	}
 }
 
@@ -67,11 +93,13 @@ void AEntity::BulletSpawn()
 	if (!World)
 		return;
 	
-	World->SpawnActor<ABullet>(bullet, GetActorTransform())->Owner = this;
+	FActorSpawnParameters params;
+	params.Owner = this;
+	World->SpawnActor<ABullet>(bullet, GetActorTransform(), params);
 }
 
 
-void AEntity::OnDie(AActor& Attacker)
+void AEntity::OnDie(TObjectPtr<AActor> Attacker)
 {
 	curHealth = 0.0f;
 	isDie = true;

@@ -14,7 +14,6 @@ AEnemy::AEnemy()
 void AEnemy::BeginPlay()
 {
 	Super::BeginPlay();
-    Tags.Add(FName("Enemy"));
 }
 
 void AEnemy::Tick(float DeltaTime)

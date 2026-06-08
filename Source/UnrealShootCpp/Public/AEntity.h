@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "ABullet.h"
 #include "GameFramework/Pawn.h"
+#include "UHpBarWidget.h"
 #include "AEntity.generated.h"
 
 UCLASS()
@@ -13,6 +14,10 @@ class UNREALSHOOTCPP_API AEntity : public APawn
 public:
 	AEntity();
 
+private:
+	UPROPERTY()
+	UHpBarWidget* hpBarWidget;
+	
 protected:
 	virtual void BeginPlay() override;
 	virtual void Move(float DeltaTime);
@@ -22,19 +27,21 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
 	virtual void BulletSpawn();
-	void GetDamage(AActor& Attacker, float Damage);
-	void OnDie(AActor& Attacker);
+	void GetDamage(TObjectPtr<AActor> Attacker, float Damage);
+	void OnDie(TObjectPtr<AActor> Attacker);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category= ShootComponent)
 	class UBoxComponent* boxComp;
 	UPROPERTY(VisibleAnywhere, Category=ShootComponent)
 	class USkeletalMeshComponent* bodyMeshComp;
+	UPROPERTY(VisibleAnywhere, Category=ShootComponent)
+	class UWidgetComponent* hpBar;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	TSubclassOf<ABullet> bullet;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	float maxHealth = 100.0f;
-	UPROPERTY(VisibleAnywhere, Category= Stat)
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category= Stat)
 	float curHealth;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	float damage = 10.0f;

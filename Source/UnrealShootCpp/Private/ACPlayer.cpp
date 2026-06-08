@@ -1,5 +1,6 @@
 #include "ACPlayer.h"
 
+#include "AEnemy.h"
 #include "Components/BoxComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
@@ -13,7 +14,6 @@ void ACPlayer::BeginPlay()
 {
 	Super::BeginPlay();
 	
-	Tags.Add(FName("Player"));
 	if (boxComp) 
 	{
 		boxComp->OnComponentBeginOverlap.AddDynamic(this, &ACPlayer::OnBeginOverlap);
@@ -80,15 +80,19 @@ void ACPlayer::Move(float DeltaTime)
 void ACPlayer::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
-	if (!OtherActor || OtherActor == this)
+	if (!OtherActor || OtherActor == this || OtherActor->Owner == this)
 		return;
 	
-	if (OtherActor->ActorHasTag(FName("Enemy")))
+	if (Cast<AEnemy>(OtherActor))
 	{
+		AEnemy* enemy = Cast<AEnemy>(OtherActor);
+		enemy->OnDie(this);
+		GetDamage(enemy, enemy->damage);
 		return;
 	}
-	if (OtherActor->ActorHasTag(FName("Bullet")))
+	if (Cast<ABullet>(OtherActor))
 	{
+		GetDamage(OtherActor->Owner, Cast<ABullet>(OtherActor)->damage);
 		return;
 	}
 	
@@ -117,21 +121,10 @@ void ACPlayer::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 void ACPlayer::OnEndOverlap(UPrimitiveComponent* OverlappedComponent, AActor* OtherActor,
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
 {
-	if (!OtherActor || OtherActor == this)
+	if (!OtherActor || OtherActor == this || OtherActor->Owner == this)
 		return;
-	
-	if (OtherActor->ActorHasTag(FName("Enemy")))
-	{
+	if (Cast<AEnemy>(OtherActor) || Cast<ABullet>(OtherActor))
 		return;
-	}
-	if (OtherActor->ActorHasTag(FName("Bullet")))
-	{
-		return;
-	}
-	if (OtherActor->ActorHasTag(FName("Player")))
-	{
-		return;
-	}
 	
 	FVector dir = (OtherActor->GetActorLocation() - GetActorLocation()).GetAbs();
 	if (dir.Y < dir.Z)
