@@ -66,7 +66,10 @@ void AEntity::Move(float DeltaTime)
 void AEntity::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
+	
+	if (isDie)
+		return;
+	
 	Move(DeltaTime);
 }
 

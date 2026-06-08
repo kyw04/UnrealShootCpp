@@ -83,16 +83,17 @@ void ACPlayer::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 	if (!OtherActor || OtherActor == this || OtherActor->Owner == this)
 		return;
 	
-	if (Cast<AEnemy>(OtherActor))
+	if (AEnemy* otherEnemy = Cast<AEnemy>(OtherActor))
 	{
-		AEnemy* enemy = Cast<AEnemy>(OtherActor);
-		enemy->OnDie(this);
-		GetDamage(enemy, enemy->damage);
+		otherEnemy->OnDie(this);
+		GetDamage(otherEnemy, otherEnemy->damage);
+		otherEnemy->Destroy();
 		return;
 	}
-	if (Cast<ABullet>(OtherActor))
+	if (ABullet* otherBullet = Cast<ABullet>(OtherActor))
 	{
-		GetDamage(OtherActor->Owner, Cast<ABullet>(OtherActor)->damage);
+		GetDamage(otherBullet->Owner, otherBullet->damage);
+		otherBullet->Destroy();
 		return;
 	}
 	
@@ -100,12 +101,6 @@ void ACPlayer::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 	n.X = 0.0f;
 	if (n.IsNearlyZero())
 		return;
-
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green,
-	FString::Printf(TEXT("bFromSweep=%d  ImpactNormal=%s  Normal=%s"),
-		bFromSweep,
-		*SweepResult.ImpactNormal.ToString(),
-		*SweepResult.Normal.ToString()));
 	
 	if (isOverlapping)
 		overlapHitNormal += n;
