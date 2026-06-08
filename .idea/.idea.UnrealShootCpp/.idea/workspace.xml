@@ -10,14 +10,10 @@
   <component name="ChangeListManager">
     <list default="true" id="4df5c29a-0e8d-44cc-af16-90c785653796" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Bullet.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_CPlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_CPlayer.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Enemy.uasset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_EnemySpawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_EnemySpawner.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Player_Bullet.uasset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/B_Bullet.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/B_Bullet.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Widgets/WBP_ScoreBoard.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Widgets/WBP_ScoreBoard.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ABullet.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ABullet.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Fabs/Fire_EXP_Vol01_Free/Niagara/EXP/NS_Sub_EXP_Mid_002_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fabs/Fire_EXP_Vol01_Free/Niagara/EXP/NS_Sub_EXP_Mid_002_02.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +117,7 @@
       <option name="presentableId" value="Default" />
       <updated>1780892409978</updated>
       <workItem from="1780892413933" duration="613000" />
-      <workItem from="1780893087986" duration="22429000" />
+      <workItem from="1780893087986" duration="23753000" />
     </task>
     <servers />
   </component>
