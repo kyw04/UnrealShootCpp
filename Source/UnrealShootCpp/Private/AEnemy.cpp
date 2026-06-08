@@ -11,6 +11,10 @@ AEnemy::AEnemy()
 		bodyMeshComp->SetRelativeRotation(FRotator(180.0f, -90.0f, -90.0f));
 	}
 	
+	ConstructorHelpers::FObjectFinder<UNiagaraSystem> tempHitParticle(TEXT("/Game/Fabs/Generic_Item_Destruction_FX/Visual_Effects/NiagaraSystem/NS_Paper.NS_Paper"));
+	if (tempHitParticle.Succeeded())
+		hitParticle = tempHitParticle.Object;
+	
 	ConstructorHelpers::FObjectFinder<USoundBase> tempBulletSound(TEXT("/Game/Sounds/laying_egg.laying_egg"));
 	if (tempBulletSound.Succeeded())
 		bulletSpawnSound = tempBulletSound.Object;
@@ -56,6 +60,8 @@ void AEnemy::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* Ot
 	UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
 {
 	if (!OtherActor || OtherActor == this || OtherActor->Owner == this)
+		return;
+	if (Cast<AEnemy>(OtherActor))
 		return;
 	
 	if (Cast<ABullet>(OtherActor))

@@ -1,5 +1,6 @@
 #include "AEntity.h"
 
+#include "../../../../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/FX/Niagara/Source/Niagara/Public/NiagaraFunctionLibrary.h"
 #include "Components/BoxComponent.h"
 #include "Components/WidgetComponent.h"
 #include "GameFramework/Actor.h"
@@ -85,12 +86,13 @@ void AEntity::GetDamage(TObjectPtr<AActor> Attacker, float Damage)
 	isHit = true;
 	curHealth -= Damage;
 	hpBarWidget->UpdateHealth(curHealth, maxHealth);
-	UGameplayStatics::PlaySound2D(GetWorld(), hitSound);
-	
 	if (curHealth <= 0)
-	{
 		OnDie(this);
-	}
+	
+	if (hitSound)
+		UGameplayStatics::PlaySound2D(GetWorld(), hitSound);
+	if (hitParticle)
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(GetWorld(), hitParticle, GetActorLocation());
 }
 
 void AEntity::BulletSpawn()

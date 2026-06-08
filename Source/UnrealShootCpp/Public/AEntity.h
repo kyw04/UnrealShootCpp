@@ -4,6 +4,9 @@
 #include "ABullet.h"
 #include "GameFramework/Pawn.h"
 #include "UHpBarWidget.h"
+#include "NiagaraSystem.h"
+#include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
 #include "AEntity.generated.h"
 
 UCLASS()
@@ -37,9 +40,12 @@ public:
 	UPROPERTY(VisibleAnywhere, Category=ShootComponent)
 	class UWidgetComponent* hpBar;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Particle)
+	class UNiagaraSystem* hitParticle;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Sound)
 	USoundBase* bulletSpawnSound;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Sound)
 	USoundBase* hitSound;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
