@@ -6,6 +6,7 @@
 #include "ABoss.h"
 #include "ACPlayer.h"
 #include "EnemySpawner.h"
+#include "GameEndWidget.h"
 #include "ShootGameMode.generated.h"
 
 UCLASS()
@@ -28,6 +29,12 @@ public:
 
 private:
 	bool isBossSpawned;
+	UPROPERTY()
+	ABoss *inGameBoss;
+	UPROPERTY()
+	UGameEndWidget* gameEndWidget;
+	UPROPERTY()
+	TSubclassOf<UUserWidget> gameEndClass;
 	
 protected:
 	UPROPERTY(EditAnywhere, Category="Sound")

@@ -15,6 +15,10 @@ AShootGameMode::AShootGameMode()
 	ConstructorHelpers::FClassFinder<ABoss> tempBossClass(TEXT("/Game/Blueprints/Enemies/BP_Boss"));
 	if (tempBossClass.Succeeded())
 		boss = tempBossClass.Class;
+	
+	ConstructorHelpers::FClassFinder<UUserWidget> tempWidget(TEXT("/Game/Blueprints/Widgets/WBP_GameEndWidget"));
+	if (tempWidget.Succeeded())
+		gameEndClass = tempWidget.Class;
 }
 
 void AShootGameMode::BeginPlay()
@@ -46,6 +50,18 @@ void AShootGameMode::BeginPlay()
 		PC->bShowMouseCursor = true;
 		PC->SetInputMode(FInputModeGameOnly());
 	}
+	
+	if (gameEndClass)
+	{
+		gameEndWidget = CreateWidget<UGameEndWidget>(PC, gameEndClass);
+		if (gameEndWidget)
+		{
+			gameEndWidget->AddToViewport();
+			gameEndWidget->OffGameEndWidget();
+		}
+	}
+	
+	
 }
 
 void AShootGameMode::Tick(float DeltaTime)
@@ -59,6 +75,11 @@ void AShootGameMode::Tick(float DeltaTime)
 		for (auto s : spawners)
 			s->isSpawning = false;
 		
-		GetWorld()->SpawnActor<AEnemy>(boss, FVector(0, 0, 1500), FRotator(0));
+		inGameBoss = GetWorld()->SpawnActor<ABoss>(boss, FVector(0, 0, 1500), FRotator(0));
 	}
+	
+	if (player->isDie)
+		gameEndWidget->OnGameEndWidget(FText::FromString("Game Over!!"));
+	else if (inGameBoss && inGameBoss->isDie)
+		gameEndWidget->OnGameEndWidget(FText::FromString("Game Clear!"));
 }

@@ -21,17 +21,17 @@ void ALobbyGameMode::BeginPlay()
 	if (BGM)
 		UGameplayStatics::PlaySound2D(GetWorld(), BGM);
 	
-	if (lobbyWidgetClass)
-	{
-		lobbyWidget = Cast<ULobbyWidget>(CreateWidget<UUserWidget>(GetWorld(), lobbyWidgetClass));
-		if (lobbyWidget)
-			lobbyWidget->AddToViewport();
-	}
-	
 	APlayerController* PC = GetWorld()->GetFirstPlayerController();
 	if (PC)
 	{
 		PC->bShowMouseCursor = true;
 		PC->SetInputMode(FInputModeUIOnly());
+	}
+	
+	if (PC && lobbyWidgetClass)
+	{
+		lobbyWidget = Cast<ULobbyWidget>(CreateWidget<UUserWidget>(PC, lobbyWidgetClass));
+		if (lobbyWidget)
+			lobbyWidget->AddToViewport();
 	}
 }
