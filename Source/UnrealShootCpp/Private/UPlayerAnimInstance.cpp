@@ -33,9 +33,6 @@ void UPlayerAnimInstance::SpawnBullet()
 
 void UPlayerAnimInstance::SetPlayerIsAttack(bool value)
 {
-	if (isAttack == value)
-		return;
-	
 	APawn* owner = TryGetPawnOwner();
 	if (!owner)
 		return;
