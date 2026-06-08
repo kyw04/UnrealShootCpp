@@ -1,6 +1,6 @@
 #include "AEntity.h"
 
-#include "../../../../../../../../Program Files/Epic Games/UE_5.7/Engine/Plugins/FX/Niagara/Source/Niagara/Public/NiagaraFunctionLibrary.h"
+#include "NiagaraFunctionLibrary.h"
 #include "Components/BoxComponent.h"
 #include "Components/WidgetComponent.h"
 #include "GameFramework/Actor.h"
