@@ -4,8 +4,6 @@
 #include "ABullet.h"
 #include "GameFramework/Pawn.h"
 #include "UHpBarWidget.h"
-#include "NiagaraSystem.h"
-#include "NiagaraComponent.h"
 #include "NiagaraFunctionLibrary.h"
 #include "AEntity.generated.h"
 
@@ -60,6 +58,8 @@ public:
 	float speed = 500.0f;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= Stat)
 	float bulletDelay = 1.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category= Stat)
+	int32 scoreValue = 10;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Info)
 	FVector direction;

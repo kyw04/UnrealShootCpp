@@ -4,10 +4,17 @@
 #include "Components/BoxComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "EnhancedInputComponent.h"
+#include "Components/WidgetComponent.h"
 
 ACPlayer::ACPlayer()
 {
 	PrimaryActorTick.bCanEverTick = true;
+	
+	ConstructorHelpers::FClassFinder<UUserWidget> tempWidget(TEXT("/Game/Blueprints/Widgets/WBP_ScoreBoard"));
+	if (tempWidget.Succeeded())
+	{
+		scoreBoardClass = tempWidget.Class;
+	}
 }
 
 void ACPlayer::BeginPlay()
@@ -18,6 +25,15 @@ void ACPlayer::BeginPlay()
 	{
 		boxComp->OnComponentBeginOverlap.AddDynamic(this, &ACPlayer::OnBeginOverlap);
 		boxComp->OnComponentEndOverlap.AddDynamic(this, &ACPlayer::OnEndOverlap);
+	}
+	
+	if (scoreBoardClass)
+	{
+		scoreWidget = Cast<UScoreBoard>(CreateWidget<UUserWidget>(GetWorld(), scoreBoardClass));
+		if (scoreWidget)
+		{
+			scoreWidget->AddToViewport();
+		}
 	}
 }
 
@@ -87,7 +103,6 @@ void ACPlayer::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 	{
 		otherEnemy->OnDie(this);
 		GetDamage(otherEnemy, otherEnemy->damage);
-		otherEnemy->Destroy();
 		return;
 	}
 	if (ABullet* otherBullet = Cast<ABullet>(OtherActor))

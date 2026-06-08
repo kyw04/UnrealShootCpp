@@ -1,8 +1,7 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "AEntity.h"
+#include "UScoreBoard.h"
 #include "ACPlayer.generated.h"
 
 UCLASS()
@@ -28,8 +27,12 @@ public:
 	
 	void BulletSpawn() override; 
 
+	UPROPERTY()
+	UScoreBoard* scoreWidget;
+	UPROPERTY()
+	TSubclassOf<UUserWidget> scoreBoardClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Input)
-	int score;
+	int32 score;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Input)
 	class UInputAction* ia_move;

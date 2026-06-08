@@ -1,5 +1,6 @@
 #include "AEntity.h"
 
+#include "ACPlayer.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Components/BoxComponent.h"
 #include "Components/WidgetComponent.h"
@@ -87,7 +88,7 @@ void AEntity::GetDamage(TObjectPtr<AActor> Attacker, float Damage)
 	curHealth -= Damage;
 	hpBarWidget->UpdateHealth(curHealth, maxHealth);
 	if (curHealth <= 0)
-		OnDie(this);
+		OnDie(Attacker);
 	
 	if (hitSound)
 		UGameplayStatics::PlaySound2D(GetWorld(), hitSound);
@@ -112,5 +113,16 @@ void AEntity::OnDie(TObjectPtr<AActor> Attacker)
 {
 	curHealth = 0.0f;
 	isDie = true;
+	
+	if (Cast<ACPlayer>(this))
+		return;
+	
+	if (ACPlayer* player = Cast<ACPlayer>(Attacker))
+	{
+		player->score += scoreValue;
+		player->scoreWidget->UpdateScore(player->score);
+	}
+	
+	this->Destroy();
 }
 
