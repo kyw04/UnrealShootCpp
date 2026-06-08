@@ -6,7 +6,7 @@
 #include "AEntity.generated.h"
 
 UCLASS()
-class AEntity : public APawn
+class UNREALSHOOTCPP_API AEntity : public APawn
 {
 	GENERATED_BODY()
 
@@ -21,8 +21,8 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
+	virtual void BulletSpawn();
 	void GetDamage(AActor& Attacker, float Damage);
-	void BulletSpawn();
 	void OnDie(AActor& Attacker);
 	
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category= ShootComponent)
@@ -40,6 +40,8 @@ public:
 	float damage = 10.0f;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	float speed = 500.0f;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category= Stat)
+	float bulletDelay = 1.0f;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Info)
 	FVector direction;

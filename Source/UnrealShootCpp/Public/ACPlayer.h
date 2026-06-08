@@ -26,11 +26,13 @@ public:
 	virtual void Tick(float DeltaTime) override;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Input");
+	void BulletSpawn() override; 
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Input")
 	class UInputAction* ia_move;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Input");
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Input")
 	class UInputAction* ia_shoot;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Input");
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Input")
 	class UInputMappingContext* imc_shoot;
 	
 	UFUNCTION()

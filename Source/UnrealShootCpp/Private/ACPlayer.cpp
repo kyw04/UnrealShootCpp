@@ -49,6 +49,11 @@ void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 	}
 }
 
+void ACPlayer::BulletSpawn()
+{
+	isAttack = true;
+}
+
 void ACPlayer::SetDirection(const struct FInputActionValue& value)
 {
 	auto v = value.Get<FVector>();
