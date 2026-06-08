@@ -4,6 +4,11 @@ AEnemy::AEnemy()
 {
 	PrimaryActorTick.bCanEverTick = true;
 	curTime = 0.0f;
+	
+	if (bodyMeshComp)
+	{
+		bodyMeshComp->SetRelativeRotation(FRotator(180.0f, -90.0f, -90.0f));
+	}
 }
 
 void AEnemy::BeginPlay()

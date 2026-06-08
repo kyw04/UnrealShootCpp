@@ -10,7 +10,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4df5c29a-0e8d-44cc-af16-90c785653796" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/UPlayerAnimInstance.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/UPlayerAnimInstance.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_CPlayer.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_CPlayer.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_Enemy.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEnemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEnemy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEntity.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +106,7 @@
       <option name="presentableId" value="Default" />
       <updated>1780892409978</updated>
       <workItem from="1780892413933" duration="613000" />
-      <workItem from="1780893087986" duration="2354000" />
+      <workItem from="1780893087986" duration="3454000" />
     </task>
     <servers />
   </component>

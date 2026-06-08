@@ -11,6 +11,7 @@ AEntity::AEntity()
 	boxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
 	RootComponent = boxComp;
 	boxComp->SetCollisionProfileName(TEXT("OverlapAll"));
+	boxComp->SetBoxExtent(FVector(40, 20, 40));
 	
 	bodyMeshComp = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BodyMeshComp"));
 	bodyMeshComp->SetupAttachment(boxComp);
@@ -20,6 +21,8 @@ AEntity::AEntity()
 	if (tempMesh.Succeeded())
 	{
 		bodyMeshComp->SetSkeletalMesh(tempMesh.Object);
+		bodyMeshComp->SetRelativeRotation(FRotator(0.0f, -90.0f, -90.0f));
+		bodyMeshComp->SetRelativeScale3D(FVector(1.75f));
 	}
 }
 
