@@ -10,16 +10,19 @@ ABullet::ABullet()
     boxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
     RootComponent = boxComp;
     boxComp->SetCollisionProfileName(TEXT("OverlapAll"));
+    boxComp->SetBoxExtent(FVector(10.0f));
 
     bodyMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("BodyMeshComp"));
     bodyMeshComp->SetupAttachment(boxComp);
     bodyMeshComp->SetCollisionProfileName(TEXT("NoCollision"));
-
+    bodyMeshComp->SetRelativeRotation(FRotator(180.0f, 0.0f, 0.0f));
+    bodyMeshComp->SetRelativeLocation(FVector(0.0f, 0.0f, 20.0f));
+    
     static ConstructorHelpers::FObjectFinder<UStaticMesh> tempMesh(TEXT("/Script/Engine.StaticMesh'/Game/Models/egg.egg'"));
     if (tempMesh.Succeeded())
     {
         bodyMeshComp->SetStaticMesh(tempMesh.Object);
-        bodyMeshComp->SetRelativeScale3D(FVector(0.25f));
+        bodyMeshComp->SetRelativeScale3D(FVector(0.1f));
     }
 }
 
