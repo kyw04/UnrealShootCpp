@@ -33,6 +33,7 @@ public:
 	TSubclassOf<UUserWidget> scoreBoardClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Input)
 	int32 score;
+	float deltaScore;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Input)
 	class UInputAction* ia_move;

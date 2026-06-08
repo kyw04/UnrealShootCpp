@@ -42,6 +42,7 @@ AEntity::AEntity()
 	{
 		hpBar->SetWidgetClass(tempWidget.Class);
 	}
+	hpBar->SetVisibility(false);
 }
 
 void AEntity::BeginPlay()
@@ -84,6 +85,7 @@ void AEntity::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void AEntity::GetDamage(TObjectPtr<AActor> Attacker, float Damage)
 {
+	hpBar->SetVisibility(true);
 	isHit = true;
 	curHealth -= Damage;
 	hpBarWidget->UpdateHealth(curHealth, maxHealth);

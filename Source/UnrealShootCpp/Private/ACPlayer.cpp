@@ -20,6 +20,7 @@ ACPlayer::ACPlayer()
 void ACPlayer::BeginPlay()
 {
 	Super::BeginPlay();
+	hpBar->SetVisibility(true);
 	
 	if (boxComp) 
 	{
@@ -33,6 +34,7 @@ void ACPlayer::BeginPlay()
 		if (scoreWidget)
 		{
 			scoreWidget->AddToViewport();
+			scoreWidget->UpdateScore(score);
 		}
 	}
 }
@@ -41,6 +43,14 @@ void ACPlayer::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	direction = FVector::Zero();
+	
+	deltaScore += DeltaTime;
+	if (deltaScore >= 1.0f)
+	{
+		score += deltaScore;
+		scoreWidget->UpdateScore(score);
+		deltaScore -= 1.0f;
+	}
 }
 
 void ACPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -101,8 +111,8 @@ void ACPlayer::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 	
 	if (AEnemy* otherEnemy = Cast<AEnemy>(OtherActor))
 	{
-		otherEnemy->OnDie(this);
 		GetDamage(otherEnemy, otherEnemy->damage);
+		otherEnemy->OnDie(this);
 		return;
 	}
 	if (ABullet* otherBullet = Cast<ABullet>(OtherActor))

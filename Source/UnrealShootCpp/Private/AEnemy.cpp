@@ -15,9 +15,9 @@ AEnemy::AEnemy()
 	if (tempHitParticle.Succeeded())
 		hitParticle = tempHitParticle.Object;
 	
-	ConstructorHelpers::FObjectFinder<USoundBase> tempBulletSound(TEXT("/Game/Sounds/laying_egg.laying_egg"));
-	if (tempBulletSound.Succeeded())
-		bulletSpawnSound = tempBulletSound.Object;
+	// ConstructorHelpers::FObjectFinder<USoundBase> tempBulletSound(TEXT("/Game/Sounds/laying_egg.laying_egg"));
+	// if (tempBulletSound.Succeeded())
+	// 	bulletSpawnSound = tempBulletSound.Object;
 	ConstructorHelpers::FObjectFinder<USoundBase> tempHitSound(TEXT("/Game/Sounds/Chicken_Hit.Chicken_Hit"));
 	if (tempHitSound.Succeeded())
 		hitSound = tempHitSound.Object;

@@ -9,11 +9,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4df5c29a-0e8d-44cc-af16-90c785653796" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ABoss.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ABoss.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config/DefaultEditor.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEditor.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/BP_EnemySpawner.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/BP_EnemySpawner.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Fabs/Fire_EXP_Vol01_Free/Niagara/EXP/NS_Sub_EXP_Mid_002_02.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Fabs/Fire_EXP_Vol01_Free/Niagara/EXP/NS_Sub_EXP_Mid_002_02.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy1.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy2.uasset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ACPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ACPlayer.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEnemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEnemy.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEntity.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ShootGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ShootGameMode.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ACPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ACPlayer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ShootGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ShootGameMode.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +126,7 @@
       <option name="presentableId" value="Default" />
       <updated>1780892409978</updated>
       <workItem from="1780892413933" duration="613000" />
-      <workItem from="1780893087986" duration="23753000" />
+      <workItem from="1780893087986" duration="30519000" />
     </task>
     <servers />
   </component>
