@@ -10,6 +10,13 @@ AEnemy::AEnemy()
 	{
 		bodyMeshComp->SetRelativeRotation(FRotator(180.0f, -90.0f, -90.0f));
 	}
+	
+	ConstructorHelpers::FObjectFinder<USoundBase> tempBulletSound(TEXT("/Game/Sounds/laying_egg.laying_egg"));
+	if (tempBulletSound.Succeeded())
+		bulletSpawnSound = tempBulletSound.Object;
+	ConstructorHelpers::FObjectFinder<USoundBase> tempHitSound(TEXT("/Game/Sounds/Chicken_Hit.Chicken_Hit"));
+	if (tempHitSound.Succeeded())
+		hitSound = tempHitSound.Object;
 }
 
 void AEnemy::BeginPlay()

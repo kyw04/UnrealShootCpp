@@ -3,6 +3,7 @@
 #include "Components/BoxComponent.h"
 #include "Components/WidgetComponent.h"
 #include "GameFramework/Actor.h"
+#include "Kismet/GameplayStatics.h"
 
 AEntity::AEntity()
 {
@@ -34,7 +35,7 @@ AEntity::AEntity()
 	hpBar->SetRelativeRotation(FRotator(180.0f, 0.0f, 0.0f));
 	hpBar->SetDrawSize(FVector2D(100.f, 10.f));
 	
-	static ConstructorHelpers::FClassFinder<UUserWidget> tempWidget(TEXT("/Game/Blueprints/Widgets/WBP_HpBar"));
+	ConstructorHelpers::FClassFinder<UUserWidget> tempWidget(TEXT("/Game/Blueprints/Widgets/WBP_HpBar"));
 	if (tempWidget.Succeeded())
 	{
 		hpBar->SetWidgetClass(tempWidget.Class);
@@ -84,6 +85,8 @@ void AEntity::GetDamage(TObjectPtr<AActor> Attacker, float Damage)
 	isHit = true;
 	curHealth -= Damage;
 	hpBarWidget->UpdateHealth(curHealth, maxHealth);
+	UGameplayStatics::PlaySound2D(GetWorld(), hitSound);
+	
 	if (curHealth <= 0)
 	{
 		OnDie(this);
@@ -99,6 +102,7 @@ void AEntity::BulletSpawn()
 	FActorSpawnParameters params;
 	params.Owner = this;
 	World->SpawnActor<ABullet>(bullet, GetActorTransform(), params);
+	UGameplayStatics::PlaySound2D(World, bulletSpawnSound);
 }
 
 

@@ -38,6 +38,11 @@ public:
 	class UWidgetComponent* hpBar;
 	
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
+	USoundBase* bulletSpawnSound;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
+	USoundBase* hitSound;
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	TSubclassOf<ABullet> bullet;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category= Stat)
 	float maxHealth = 100.0f;
