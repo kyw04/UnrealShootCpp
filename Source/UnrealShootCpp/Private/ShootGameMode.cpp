@@ -39,6 +39,13 @@ void AShootGameMode::BeginPlay()
 			spawners.Add(spawner);
 		}
 	}
+	
+	APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	if (PC)
+	{
+		PC->bShowMouseCursor = true;
+		PC->SetInputMode(FInputModeGameOnly());
+	}
 }
 
 void AShootGameMode::Tick(float DeltaTime)

@@ -9,20 +9,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4df5c29a-0e8d-44cc-af16-90c785653796" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ABoss.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ABoss.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/LobbyGameMode.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/LobbyWidget.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/LobbyGameMode.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/LobbyWidget.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnrealShootCpp/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Config/DefaultEngine.ini" beforeDir="false" afterPath="$PROJECT_DIR$/Config/DefaultEngine.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy1.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy1.uasset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy2.uasset" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Blueprints/Enemies/BP_Enemy2.uasset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Content/Map/LobbyMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/LobbyMap.umap" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" beforeDir="false" afterPath="$PROJECT_DIR$/Content/Map/ShootingMap.umap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ACPlayer.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ACPlayer.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEnemy.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEnemy.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEntity.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/AEntity.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ShootGameMode.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Private/ShootGameMode.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ACPlayer.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ACPlayer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ShootGameMode.h" beforeDir="false" afterPath="$PROJECT_DIR$/Source/UnrealShootCpp/Public/ShootGameMode.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,10 +34,14 @@
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/Engine/Classes/GameFramework/Actor.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../../../../../Program Files/Epic Games/UE_5.7/Engine/Source/Runtime/UMG/Public/Components/TextBlock.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Private/EnemySpawner.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Private/LobbyGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Private/LobbyWidget.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Private/ShootGameMode.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Private/UHpBarWidget.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Private/UScoreBoard.cpp" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Public/EnemySpawner.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Public/LobbyGameMode.h" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Public/LobbyWidget.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Public/ShootGameMode.h" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Source/UnrealShootCpp/Public/UScoreBoard.h" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -126,7 +124,7 @@
       <option name="presentableId" value="Default" />
       <updated>1780892409978</updated>
       <workItem from="1780892413933" duration="613000" />
-      <workItem from="1780893087986" duration="30519000" />
+      <workItem from="1780893087986" duration="32758000" />
     </task>
     <servers />
   </component>
