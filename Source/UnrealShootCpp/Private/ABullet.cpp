@@ -17,12 +17,12 @@ ABullet::ABullet()
     bodyMeshComp->SetCollisionProfileName(TEXT("NoCollision"));
     bodyMeshComp->SetRelativeRotation(FRotator(180.0f, 0.0f, 0.0f));
     bodyMeshComp->SetRelativeLocation(FVector(0.0f, 0.0f, 20.0f));
+    bodyMeshComp->SetRelativeScale3D(FVector(0.1f));
     
     static ConstructorHelpers::FObjectFinder<UStaticMesh> tempMesh(TEXT("/Script/Engine.StaticMesh'/Game/Models/egg.egg'"));
     if (tempMesh.Succeeded())
     {
         bodyMeshComp->SetStaticMesh(tempMesh.Object);
-        bodyMeshComp->SetRelativeScale3D(FVector(0.1f));
     }
 }
 
