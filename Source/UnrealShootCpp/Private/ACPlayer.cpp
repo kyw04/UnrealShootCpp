@@ -127,10 +127,7 @@ void ACPlayer::OnBeginOverlap(UPrimitiveComponent* OverlappedComponent, AActor* 
 	if (n.IsNearlyZero())
 		return;
 	
-	if (isOverlapping)
-		overlapHitNormal += n;
-	else
-		overlapHitNormal = n;
+	overlapHitNormal += n;
 	
 	overlapHitNormal.Y = FMath::Clamp(overlapHitNormal.Y, -1.0f, 1.0f);
 	overlapHitNormal.Z = FMath::Clamp(overlapHitNormal.Z, -1.0f, 1.0f);
